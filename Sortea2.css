@@ -1,0 +1,116 @@
+header{
+ background: #F4F3F1;
+ text-align: center;
+ word-spacing: 50px;
+ line-height: 50px;
+ font-family: "Castoro Titling", serif;
+ width:100%; /* Establecemos que el header abarque el 100% del documento */
+ overflow:hidden; /* Eliminamos errores de float */
+ margin-bottom:20px;
+}
+body{
+ background-color:#F4F3F1 ;
+ position: relative;
+}
+div{
+ text-align: center;
+ font-family: "Open Sans", sans-serif;
+ font-size: 18px;
+}
+.comentariochico{
+ text-align: center;
+ font-family: "Open Sans", sans-serif;
+ margin-top: 0;
+ font-size: 12px;
+}
+.subtitulo{
+ margin-top: 10px;
+ font-family: "Century Gothic", sans-serif;
+ color: #e08874;
+}
+.Botones{
+ font-size: 15px;
+ border:none black;
+ color: black;
+
+ margin-left: 0px;
+ cursor: pointer;
+ margin-right: 350px;
+}
+.BotonesSorteo{
+ color: #de6449;
+ font-family: "Dancing Script", sans-serif;
+ border-radius:  20px;
+ border-color: black;
+ padding: 20px;
+ text-align: center;
+ font-size: 30px;
+ cursor: pointer;
+ width: 130px;
+ border-width: medium;
+}
+.botonBorrar{
+ border-color: black;
+ padding: 10px;
+ font-size: 15px;
+ font-family: "Adobe Gothic Std B",sans-serif;
+ border-radius: 20px;
+ text-align: center;
+ cursor: pointer;
+ margin-left: 10px;
+ border-width: thin;
+}
+a:link, a:visited{
+ color: rgb(42, 65, 56);
+}
+a{
+ transition: color 1s linear;
+ color: #19ac67;
+}
+a:hover{
+ font-size: 1.4em;
+}
+.ListaParticipates{
+ background: #F4F3F1;
+ border-color: black;
+ border-radius: 20px;
+ border-width: medium;
+ width: 300px;
+ text-align: center;
+}
+.Ingreso-de-datos {
+ background: #F4F3F1;
+ border-color: black;
+ border-width: medium;
+ border-radius: 15px;
+ width: 300px;
+ text-align: center;
+}
+#S2{
+ position: absolute;
+ right: 0;
+ top: 50%;
+ transform: translateY(-50%);
+}
+
+img.Imagenes-logo{
+ margin: 5px;
+ border: 1px solid #ccc;
+ float: left;
+ width: 100%;
+ height: auto;
+}
+p.descripcion{
+ padding: 15px;
+ text-align: center;
+}
+
+.nav{
+ text-align: center;
+ margin: 20px 0;
+}
+.nav a{
+ margin: 0 20px;
+ text-decoration: none;
+}
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Sorteo</title>
+    <link rel="stylesheet" href="Sortea2.css" type="text/css">
+    <link rel="shortcut icon" href="Imagenes/favicon.ico" type="image/x-icon">
+    <!--Emplee la etiqueta label y el atributo for en los input-->
+</head>
+<body class="Sorteo">
+<header>
+    <nav>
+        <a href="index.html" target="_blank">INICIO</a>
+        <a href="AmigoInvisible.html" target="_blank">AMIGO INVISBLE</a>
+        <a href="Preguntas_contacto.html" target="_blank">PREGUNTAS-CONTACTOS</a>
+    </nav>
+</header>
+<form>
+    <div>
+        <h1 class="subtitulo">¡SORTEOS!</h1>
+        <p>Titulo del sorteo:</p>
+        <p><input type="text" name="titulo sorteo" class="Ingreso-de-datos" size="40" maxlength="40" ></p>
+        <p>Numero de premios:</p>
+        <p><input type="number" name="Numero de premios" min=0 max= 9 class="Ingreso-de-datos"></p>
+        <p>Lista de participantes:</p>
+        <p><textarea name="Participantes"  class="ListaParticipates" rows="10" cols="40"></textarea></p>
+        <p class="comentariochico"> Debe tener como minimo dos participantes. Separelos presionando enter.</p>
+        <button type="button" class="BotonesSorteo">Sortear!</button>
+        <button type="reset" class="botonBorrar">Borrar participantes</button>
+        <p>Ganadores:</p>
+    </div>
+</form>
+</body>
+</html>
