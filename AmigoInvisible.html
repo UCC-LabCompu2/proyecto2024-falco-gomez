@@ -1,30 +1,37 @@
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Amigo Invisible</title>
     <link rel="stylesheet" href="Sortea2.css" type="text/css">
     <link rel="shortcut icon" href="Imagenes/favicon.ico" type="image/x-icon">
-    <!--  Use el atributo alt en las imágenes para describir la función del elemento visual.-->
+    <meta charset="UTF-8">
+    <title>Amigo Invisible</title>
+    <meta content="Magdalena Gómez Figueroa y Francisca Falco" name="author">
+    <meta content="Prácticas para el material de HTML" name="description">
+    <meta content="sorteo, amigo invisble, azar, juegos" name="keywords">
 </head>
 <body class="AmigoInvisible">
-    <nav class="inicio">
-        <a href="index.html" target="_blank">INICIO</a>
-        <a href="Sorteo.html" target="_blank">SORTEO</a>
-    </nav>
-    <img id="S2" src="Imagenes/S2.png">
+<nav class="botones">
+    <a href="index.html" target="_blank">INICIO</a>
+    <a href="Sorteo.html" target="_blank">SORTEO</a>
+    <a href="Preguntas_contacto.html">PREGUNTAS-CONTACTO</a>
+</nav>
+<aside>
+    <img id="S2" alt="S2" src="Imagenes/S2.png">
+</aside>
 <div>
-    <h1 id="titulo">AMIGO INVISIBLE</h1>
+    <header>
+        <h1 class="subtitulo">AMIGO INVISIBLE</h1>
+    </header>
     <h2>ORGANIZA TU SORTEO PARA EL AMIGO INVISIBLE!</h2>
     <p>Añade uno a uno los participantes</p>
-    <textarea id="participantes" name="Participantes" rows="10" cols="40">ingresa los participantes</textarea>
-    <p>Debe tener como mínimo dos participantes. Sepárelos presionando enter.</p>
-    <button type="button" onclick="sortear()">Sortear!</button>
-    <button type="button" onclick="borrarParticipantes()">Borrar participantes</button>
-    <p>Ingresa tu nombre: </p>
-    <input type="text" name="nombre" id="nombre" oninput="mostrarAmigoInvisible()">
+    <textarea id="participantes" name="Participantes" placeholder="Ingrese los participantes" rows="10" cols="40"></textarea>
+    <p class="comentariochico">Debe tener como mínimo dos participantes. Sepárelos presionando enter.</p>
+    <button type="button" class="BotonesSorteo" onclick="sortear()">Sortear!</button>
+    <button type="button" class="botonBorrar" onclick="borrarParticipantes()">Borrar participantes</button>
+    <p>
+        <input name="nombre" placeholder="Ingrese nombre">
+    </p>
     <p> regala a: <span id="amigoInvisible"></span></p>
 </div>
-<<<<<<< HEAD
 <script>
     let resultadoSorteo = {};
 
@@ -32,37 +39,15 @@
         const participantes = document.getElementById('participantes').value.trim().split('\n').filter(Boolean);
 
         if (participantes.length < 2) {
-            alert("Error: Debe ingresar al menos dos nombres.");
+            alert("Error: Debe ingresar al menos dos nombres");
             return;
         }
 
         let copiaParticipantes = [...participantes];
         resultadoSorteo = {};
 
-        for (let i = 0; i < participantes.length; i++) {
-            let indexAleatorio;
-            do {
-                indexAleatorio = Math.floor(Math.random() * copiaParticipantes.length);
-            } while (copiaParticipantes[indexAleatorio] === participantes[i]);
-
-            resultadoSorteo[participantes[i]] = copiaParticipantes[indexAleatorio];
-            copiaParticipantes.splice(indexAleatorio, 1);
-        }
-
         console.log(resultadoSorteo);
         alert("El sorteo se ha realizado con éxito!");
-    }
-
-    function mostrarAmigoInvisible() {
-        const nombre = document.getElementById('nombre').value.trim();
-        const amigoInvisible = resultadoSorteo[nombre];
-        const amigoInvisibleElement = document.getElementById('amigoInvisible');
-
-        if (amigoInvisible) {
-            amigoInvisibleElement.textContent = amigoInvisible;
-        } else {
-            amigoInvisibleElement.textContent = "";
-        }
     }
 
     function borrarParticipantes() {
@@ -72,6 +57,5 @@
         resultadoSorteo = {};
     }
 </script>
-
 </body>
 </html>
