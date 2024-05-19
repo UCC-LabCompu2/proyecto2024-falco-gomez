@@ -32,8 +32,7 @@ div{
  font-size: 15px;
  border:none black;
  color: black;
-
- margin-left: 0px;
+ margin-left: 0;
  cursor: pointer;
  margin-right: 350px;
 }
@@ -92,16 +91,12 @@ a:hover{
  top: 50%;
  transform: translateY(-50%);
 }
-
-img.Imagenes-logo{
- margin: 5px;
- border: 1px solid #ccc;
- float: left;
- width: 100%;
- height: auto;
-}
-p.descripcion{
- padding: 15px;
+.Descripcion{
+ column-count: 3;
+ column-gap: 10px;
  text-align: center;
 }
+.Columna1{
 
+
+}
