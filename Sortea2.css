@@ -1,7 +1,7 @@
 header{
  background: #F4F3F1;
  text-align: center;
- word-spacing: 50px;
+ word-spacing: 0;
  line-height: 50px;
  font-family: "Castoro Titling", serif;
  width:100%; /* Establecemos que el header abarque el 100% del documento */
@@ -12,10 +12,31 @@ body{
  background-color:#F4F3F1 ;
  position: relative;
 }
+.linea {
+ border: 0; /* Elimina el borde predeterminado */
+ border-top: 1px solid black; /* Establece un borde superior de 1px de grosor y sólido */
+ margin: 20px 0; /* Añade espacio encima y debajo de la línea */
+}
 div{
  text-align: center;
  font-family: "Open Sans", sans-serif;
  font-size: 18px;
+}
+a:link, a:visited{
+ color: black;
+ text-decoration: none;
+ font-size: 20px ;
+ border:none black;
+ margin-left: 0;
+ cursor: pointer;
+ margin-right: 30px;
+}
+a{
+ transition: color 1s linear;
+ color: #19ac67;
+}
+a:hover{
+ font-size: 1.4em;
 }
 .comentariochico{
  text-align: center;
@@ -28,14 +49,7 @@ div{
  font-family: "Century Gothic", sans-serif;
  color: #e08874;
 }
-.botones{
- font-size: 15px;
- border:none black;
- color: black;
- margin-left: 0;
- cursor: pointer;
- margin-right: 350px;
-}
+
 .BotonesSorteo{
  color: #de6449;
  font-family: "Dancing Script", sans-serif;
@@ -59,21 +73,19 @@ div{
  margin-left: 10px;
  border-width: thin;
 }
-a:link, a:visited{
- color: rgb(42, 65, 56);
-}
-a{
- transition: color 1s linear;
- color: #19ac67;
-}
-a:hover{
- font-size: 1.4em;
-}
-.ListaParticipates{
+.ListaParticipantes{
  background: #F4F3F1;
  border-color: black;
  border-radius: 20px;
  border-width: medium;
+ width: 300px;
+ text-align: center;
+}
+#Numeropremios{
+ background: #F4F3F1;
+ border-color: black;
+ border-width: medium;
+ border-radius: 15px;
  width: 300px;
  text-align: center;
 }
@@ -96,7 +108,4 @@ a:hover{
  column-gap: 10px;
  text-align: center;
 }
-.Columna1{
 
-
-}

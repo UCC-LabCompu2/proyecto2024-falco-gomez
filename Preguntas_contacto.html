@@ -11,23 +11,24 @@
 </head>
 <body class="Preguntas">
 <header>
-    <nav class="botones">
+    <nav>
         <a href="index.html" >INICIO</a>
         <a href="Sorteo.html" >SORTEO</a>
         <a href="AmigoInvisible.html">AMIGO INVISBLE</a>
     </nav>
+    <div class="linea"></div>
 </header>
 <form>
     <div>
         <h1 class="subtitulo">Preguntas-Contactos</h1>
         <p>Ingrese su consulta:</p>
         <p>
-            <textarea name="Consulta" rows="5" cols="40" class="Ingreso-de-datos"></textarea>
+            <textarea name="Consulta" rows="5" cols="40" id="IngresoDatos"></textarea>
         </p>
         <p>Direccion de correo electronico:</p>
         <p>
             <label for="Ingresomail"></label>
-            <input type="text"  name="mail" id="mail" placeholder="Ingrese su mail" class="Ingreso-de-datos" size="40" maxlength="40">
+            <input type="text" name="mail" id="Ingresomail" placeholder="Ingrese su mail" size="40" maxlength="40">
         </p>
         <button type="submit" class="botonBorrar">Enviar!</button>
     </div>
