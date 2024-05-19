@@ -13,7 +13,7 @@
 * HTML5
 * CSS3
 
-Link del proyecto: [Sortea2]()
+Link del proyecto: [Sortea2](https://ucc-labcompu2.github.io/proyecto2024-falco-gomez/)
 :raised_hands:
 :ribbon:
 :star2:
