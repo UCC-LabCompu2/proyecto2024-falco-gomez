@@ -25,37 +25,12 @@
     <p>Añade uno a uno los participantes</p>
     <textarea id="participantes" name="Participantes" placeholder="Ingrese los participantes" rows="10" cols="40"></textarea>
     <p class="comentariochico">Debe tener como mínimo dos participantes. Sepárelos presionando enter.</p>
-    <button type="button" class="BotonesSorteo" onclick="sortear()">Sortear!</button>
-    <button type="button" class="botonBorrar" onclick="borrarParticipantes()">Borrar participantes</button>
+    <button type="button" class="BotonesSorteo">Sortear!</button>
+    <button type="button" class="botonBorrar" >Borrar participantes</button>
     <p>
         <input name="nombre" placeholder="Ingrese nombre">
     </p>
     <p> regala a: <span id="amigoInvisible"></span></p>
 </div>
-<script>
-    let resultadoSorteo = {};
-
-    function sortear() {
-        const participantes = document.getElementById('participantes').value.trim().split('\n').filter(Boolean);
-
-        if (participantes.length < 2) {
-            alert("Error: Debe ingresar al menos dos nombres");
-            return;
-        }
-
-        let copiaParticipantes = [...participantes];
-        resultadoSorteo = {};
-
-        console.log(resultadoSorteo);
-        alert("El sorteo se ha realizado con éxito!");
-    }
-
-    function borrarParticipantes() {
-        document.getElementById('participantes').value = '';
-        document.getElementById('nombre').value = '';
-        document.getElementById('amigoInvisible').textContent = '';
-        resultadoSorteo = {};
-    }
-</script>
 </body>
 </html>
