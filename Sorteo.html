@@ -14,7 +14,7 @@
     <meta content="Magdalena Gómez Figueroa y Francisca Falco" name="author">
     <meta content="Prácticas para el material de HTML" name="description">
     <meta content="sorteo, amigo invisble, azar, juegos" name="keywords">
- </head>
+</head>
 <body class="Sorteo">
 <header>
     <nav class="botones">
@@ -22,17 +22,19 @@
         <a href="AmigoInvisible.html" target="_blank">AMIGO INVISBLE</a>
         <a href="Preguntas_contacto.html" target="_blank">PREGUNTAS-CONTACTOS</a>
     </nav>
+    <h1 class="subtitulo">¡SORTEOS!</h1>
 </header>
 <form>
     <div>
-        <h1 class="subtitulo">¡SORTEOS!</h1>
         <p>Titulo del sorteo:</p>
         <p>
-            <input type="text" name="titulo sorteo" placeholder="Ingrese el titulo" class="Ingreso-de-datos" size="40" maxlength="40" >
+            <label for="IngresoDatos"></label>
+            <input type="text" name="titulo sorteo" placeholder="Ingrese el titulo" id="IngresoDatos" size="40" maxlength="40" >
         </p>
         <p>Numero de premios:</p>
         <p>
-            <input type="number" name="Numero de premios" placeholder="Ingrese el número de premios" min=0 max= 9 class="Ingreso-de-datos">
+            <label for="Numeropremios"></label>
+            <input type="number" name="Numero de premios" placeholder="Ingrese el número de premios" min=0 max= 9 size="40" maxlength="10" id="Numeropremios">
         </p>
         <p>Lista de participantes:</p>
         <p>
@@ -43,6 +45,8 @@
         <button type="reset" class="botonBorrar">Borrar participantes</button>
         <p>Ganadores:</p>
     </div>
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+    </canvas>
 </form>
 </body>
 </html>
