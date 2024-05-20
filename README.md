@@ -1,10 +1,12 @@
 # Sortea2
--[Autores](#autores)
--[Descripción](#descripción)
-  -[Tecnologías_usadas](#tecnologías-usadas)
+- [Autores](#autores)
+- [Descripción](#descripción)
+  - [Tecnologías_usadas](#tecnologías-usadas)
+  
 ## Autores
 * Magdalena Gómez Figueroa :love_letter:
 * Francisca Falco :heartbeat:
+
 ## Descripción
 **Proyecto 2024**: Página web de sorteos
 | Email | Autores |
