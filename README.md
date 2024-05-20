@@ -1,4 +1,7 @@
 # Sortea2
+-[Autores](#autores)
+-[Descripción](#descripción)
+  -[Tecnologías_usadas](#tecnologías-usadas)
 ## Autores
 * Magdalena Gómez Figueroa :love_letter:
 * Francisca Falco :heartbeat:
