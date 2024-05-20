@@ -1,111 +1,125 @@
-header{
- background: #F4F3F1;
- text-align: center;
- word-spacing: 0;
- line-height: 50px;
- font-family: "Castoro Titling", serif;
- width:100%; /* Establecemos que el header abarque el 100% del documento */
- overflow:hidden; /* Eliminamos errores de float */
- margin-bottom:20px;
-}
-body{
- background-color:#F4F3F1 ;
- position: relative;
-}
-.linea {
- border: 0; /* Elimina el borde predeterminado */
- border-top: 1px solid black; /* Establece un borde superior de 1px de grosor y sólido */
- margin: 20px 0; /* Añade espacio encima y debajo de la línea */
-}
-div{
- text-align: center;
- font-family: "Open Sans", sans-serif;
- font-size: 18px;
-}
-a:link, a:visited{
- color: black;
- text-decoration: none;
- font-size: 20px ;
- border:none black;
- margin-left: 0;
- cursor: pointer;
- margin-right: 30px;
-}
-a{
- transition: color 1s linear;
- color: #19ac67;
-}
-a:hover{
- font-size: 1.4em;
-}
-.comentariochico{
- text-align: center;
- font-family: "Open Sans", sans-serif;
- margin-top: 0;
- font-size: 12px;
-}
-.subtitulo{
- margin-top: 10px;
- font-family: "Century Gothic", sans-serif;
- color: #e08874;
+header {
+    background: #F4F3F1;
+    text-align: center;
+    word-spacing: 0;
+    line-height: 50px;
+    font-family: "Castoro Titling", serif;
+    width: 100%; /* Establecemos que el header abarque el 100% del documento */
+    overflow: hidden; /* Eliminamos errores de float */
+    margin-bottom: 20px;
 }
 
-.BotonesSorteo{
- color: #de6449;
- font-family: "Dancing Script", sans-serif;
- border-radius:  20px;
- border-color: black;
- padding: 20px;
- text-align: center;
- font-size: 30px;
- cursor: pointer;
- width: 130px;
- border-width: medium;
+body {
+    background-color: #F4F3F1;
+    position: relative;
 }
-.botonBorrar{
- border-color: black;
- padding: 10px;
- font-size: 15px;
- font-family: "Adobe Gothic Std B",sans-serif;
- border-radius: 20px;
- text-align: center;
- cursor: pointer;
- margin-left: 10px;
- border-width: thin;
+
+.linea {
+    border: 0; /* Elimina el borde predeterminado */
+    border-top: 1px solid black; /* Establece un borde superior de 1px de grosor y sólido */
+    margin: 20px 0; /* Añade espacio encima y debajo de la línea */
 }
-.ListaParticipantes{
- background: #F4F3F1;
- border-color: black;
- border-radius: 20px;
- border-width: medium;
- width: 300px;
- text-align: center;
+
+div {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
 }
-#Numeropremios{
- background: #F4F3F1;
- border-color: black;
- border-width: medium;
- border-radius: 15px;
- width: 300px;
- text-align: center;
+
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    border: none black;
+    margin-left: 0;
+    cursor: pointer;
+    margin-right: 30px;
 }
+
+a {
+    transition: color 1s linear;
+    color: #19ac67;
+}
+
+a:hover {
+    font-size: 1.4em;
+}
+
+.comentariochico {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    margin-top: 0;
+    font-size: 12px;
+}
+
+.subtitulo {
+    margin-top: 10px;
+    font-family: "Century Gothic", sans-serif;
+    color: #e08874;
+}
+
+.BotonesSorteo {
+    color: #de6449;
+    font-family: "Dancing Script", sans-serif;
+    border-radius: 20px;
+    border-color: black;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    width: 130px;
+    border-width: medium;
+}
+
+.botonBorrar {
+    border-color: black;
+    padding: 10px;
+    font-size: 15px;
+    font-family: "Adobe Gothic Std B", sans-serif;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+    border-width: thin;
+}
+
+.ListaParticipantes {
+    background: #F4F3F1;
+    border-color: black;
+    border-radius: 20px;
+    border-width: medium;
+    width: 300px;
+    text-align: center;
+}
+
+#Numeropremios {
+    background: #F4F3F1;
+    border-color: black;
+    border-width: medium;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+}
+
 #IngresoDatos {
- background: #F4F3F1;
- border-color: black;
- border-width: medium;
- border-radius: 15px;
- width: 300px;
- text-align: center;
+    background: #F4F3F1;
+    border-color: black;
+    border-width: medium;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
 }
-#S2{
- position: absolute;
- right: 0;
- top: 50%;
- transform: translateY(-50%);
+
+#S2 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
-.Descripcion{
- column-count: 3;
- column-gap: 10px;
- text-align: center;
+
+.Descripcion {
+    column-count: 3;
+    column-gap: 10px;
+    text-align: center;
 }
 
