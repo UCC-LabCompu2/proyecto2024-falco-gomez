@@ -28,27 +28,33 @@
 </header>
 <form>
     <div>
-        <p>Titulo del sorteo:</p>
         <p>
-            <label for="IngresoDatos"></label>
-            <input type="text" name="titulo sorteo" id="IngresoDatos" size="40" maxlength="40" >
+            <label for="IngresoDatos">Título del sorteo:</label>
         </p>
-        <p>Numero de premios:</p>
         <p>
-            <label for="Numeropremios"></label>
-            <input type="number" name="Numero de premios" min=0 max= 9 size="40" maxlength="10" id="Numeropremios">
+            <input type="text" name="titulo sorteo" id="IngresoDatos" size="40" maxlength="40">
         </p>
-        <p>Lista de participantes:</p>
         <p>
-            <textarea name="Participantes" class="ListaParticipantes" rows="10" cols="40"></textarea>
+            <label for="Numeropremios">Numero de premios:</label>
+        </p>
+        <p>
+            <input type="number" name="Numero de premios" min=0 max=9 size="40" maxlength="10" id="Numeropremios">
+        </p>
+        <p>
+            <label for="ListaParticipantes">Lista de participantes:</label>
+        </p>
+        <p>
+            <textarea name="Participantes" class="ListaParticipantes" id="ListaParticipantes" rows="10"
+                      cols="40"></textarea>
         </p>
         <p class="comentariochico"> Debe tener como minimo dos participantes. Separelos presionando enter.</p>
         <button type="button" class="BotonesSorteo">Sortear!</button>
         <button type="reset" class="botonBorrar">Borrar participantes</button>
         <p>Ganadores:</p>
     </div>
-    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+    <canvas id="myCanvas" width="200" height="100">
     </canvas>
 </form>
 </body>
 </html>
+
