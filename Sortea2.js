@@ -35,3 +35,8 @@ const realizarSorteo = () => {
         ctx.fillText(`${index+1}.${ganador}`,10,60+(index*20));
     });
 };
+
+const borrarParticipantes=()=>{
+    document.getElementById("ListaParticipantes").value="";
+};
+
