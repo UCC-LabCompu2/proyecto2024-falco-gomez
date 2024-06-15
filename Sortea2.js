@@ -92,9 +92,10 @@ const realizarAmigoInvisible = () => {
     let destinatarioSeleccionado = '';
     const Nombre_ingresado=document.getElementById('IngresoDatos').value.trim();
     Nombre_ingresado.toLowerCase(); //Conversión a minúsculas
-    for (let i=0;i<parti_que_regala;i++){
+    for (let i=0;i<parti_que_regala.length;i++){
         if(Nombre_ingresado===parti_que_regala[i]){
-            console.log(parti_que_regala[i]+ ' regala a ' + destinario[i]);
+            destinatarioSeleccionado=destinario[i];
+            dibujarEnCanvas2(Nombre_ingresado,destinatarioSeleccionado)
         }
     }
     document.getElementById('sorteado').value=destinatarioSeleccionado;
@@ -102,3 +103,15 @@ const realizarAmigoInvisible = () => {
 
 
 };
+const dibujarEnCanvas2 = (participante, destinatario) => {
+    const canvas = document.getElementById('mycanvasInvisible');
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height); //limpia el canvas
+
+    ctx.font = '16px Calibri';
+    ctx.fillStyle = 'black';
+    ctx.fillText(' ${participante}', 10, 20);
+    ctx.fillText(`&{destinatario}`, 10, 40);
+
+
+}
