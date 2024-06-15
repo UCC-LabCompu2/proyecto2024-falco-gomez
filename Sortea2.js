@@ -1,3 +1,4 @@
+
 /**
  * Realiza un sorteo entre los participantes ingresados y dibuja los ganadores en un canvas
  * @function realizarSorteo
@@ -63,11 +64,11 @@ const dibujarEnCanvas = (titulo, ganadores) => {
 
     ctx.font = '16px Calibri';
     ctx.fillStyle = 'black';
-    ctx.fillText('Título: ${titulo}', 10, 20);
+    ctx.fillText(`Título: ${titulo}`, 10, 20);
     ctx.fillText('Ganadores:', 10, 40);
 
     ganadores.forEach((ganador, index) => { //recorre el arreglo ganadores, donde ganador es cada elemento del arreglo y indice es el indice actual del elemento
-        ctx.fillText('${index + 1}. ${ganador}', 10, 60 + (index * 20)); //dibuja cada ganador en el canvas
+        ctx.fillText(`${index + 1}. ${ganador}`, 10, 60 + (index * 20)); //dibuja cada ganador en el canvas
     });
 };
 
@@ -111,7 +112,5 @@ const dibujarEnCanvas2 = (participante, destinatario) => {
     ctx.font = '16px Calibri';
     ctx.fillStyle = 'black';
     ctx.fillText(' ${participante}', 10, 20);
-    ctx.fillText(`&{destinatario}`, 10, 40);
-
-
+    ctx.fillText('&{destinatario}', 10, 40);
 }
