@@ -43,3 +43,24 @@ const realizarSorteo=()=>{
 const borrarParticipantes = () => {
     document.getElementById('ListaParticipantes').value = '';
 };
+const realizarAmigoInvisible = () => {
+    const ListaParctipantes=document.getElementsByName('Participantes').value.trim().split('\n');
+
+    if (listaParticipantes.length<2){
+        alert('Error, mínimo de 2 participantes');
+        return;
+    }
+    const parti_que_regala=[ListaParctipantes];
+    const destinario=[];
+
+
+    for (let i=0;i<parti_que_regala.length;i++){
+        const indice = Math.floor(Math.random() * parti_que_regala.length);
+        if (i === indice) {
+            destinario.push(parti_que_regala[indice]);
+        }
+    }
+
+
+
+}
