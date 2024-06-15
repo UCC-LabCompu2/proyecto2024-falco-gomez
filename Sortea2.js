@@ -72,22 +72,30 @@ const dibujarEnCanvas = (titulo, ganadores) => {
 };
 
 const realizarAmigoInvisible = () => {
-    const ListaParctipantes = document.getElementsByName('Participantes').value.trim().split('\n');
+    const listaParticipantes = document.getElementById('ListaParticipantes').value.trim().split('\n');
 
     if (listaParticipantes.length < 2) {
         alert('Error, mínimo de 2 participantes');
         return;
     }
-    const parti_que_regala = [ListaParctipantes];
+    listaParticipantes.toLowerCase(); //Conversión a minúsculas
+    const parti_que_regala = [listaParticipantes];
     const destinario = [];
 
 
     for (let i = 0; i < parti_que_regala.length; i++) {
         const indice = Math.floor(Math.random() * parti_que_regala.length);
-        if (i === indice) {
+        if (i != indice) {
             destinario.push(parti_que_regala[indice]);
         }
     }
-
-
+    let destinatarioSeleccionado = '';
+    const Nombre_ingresado=document.getElementById('IngresoDatos').value.trim();
+    Nombre_ingresado.toLowerCase(); //Conversión a minúsculas
+    for (let i=0;i<parti_que_regala;i++){
+        if(Nombre_ingresado===parti_que_regala[i]){
+            console.log(parti_que_regala[i]+ ' regala a ' + destinario[i]);
+        }
+    }
+    document.getElementById('sorteado').value=destinatarioSeleccionado;
 };
