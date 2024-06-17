@@ -5,16 +5,16 @@
  * @return {void}
  */
 const realizarSorteo = () => {
-    const titulo = document.getElementById('IngresoDatos').value; //obtiene el valor ingresado en la en el campo "IngresoDatos" y lo asigna titulo
-    const numeroPremios = parseInt(document.getElementById('Numeropremios').value); //obtiene el valor ingresado en la en el campo "NumeroPremios", lo convierte a entero con parseInt() y lo asigna numeroPremios
-    const listaParticipantes = document.getElementById('ListaParticipantes').value.trim().split('\n');//obtiene el valor ingresado en la en el campo "ListaParticipantes", borra los espacios en blanco del principio y del final con trim(), divide el texto en lineas con split("\n") y guarda cada linea como un elemento del arreglo listaParticipantes
+    const titulo = document.getElementById('IngresoDatos').value;
+    const numeroPremios = parseInt(document.getElementById('Numeropremios').value);
+    const listaParticipantes = document.getElementById('ListaParticipantes').value.trim().split('\n');
 
-    const ganadores = []; //arreglo que guardará el nombre de los ganadores
-    const participantes = [...listaParticipantes]; //copia del arreglo listaParticipantes, para que no cambie el arreglo original cuando se hacen sorteos
+    const ganadores = [];
+    const participantes = [...listaParticipantes];
 
-    while (ganadores.length < numeroPremios) { //se hará hasta que se hayan seleccionado la cantidad de numeroPremios ganadores
-        const indice = Math.floor(Math.random() * participantes.length); //genera un numero aleatorio entre 0 y participantes[] y lo guarda en indice
-        ganadores.push(participantes.splice(indice, 1)[0]); //saca un elemento de participantes[] en el indice y lo elimina de participantes[], despues lo agrega a ganadores[]
+    while (ganadores.length < numeroPremios) {
+        const indice = Math.floor(Math.random() * participantes.length);
+        ganadores.push(participantes.splice(indice, 1)[0]);
     }
     dibujarEnCanvas(titulo, ganadores);
 };
@@ -34,8 +34,8 @@ const borrarParticipantes = () => {
  * @returns {void}
  */
 const comprobarValores = () => {
-    const numeroPremios = parseInt(document.getElementById('Numeropremios').value); //obtiene el valor ingresado en la en el campo "NumeroPremios", lo convierte a entero con parseInt() y lo asigna numeroPremios
-    const listaParticipantes = document.getElementById('ListaParticipantes').value.trim().split('\n');//obtiene el valor ingresado en la en el campo "ListaParticipantes", borra los espacios en blanco del principio y del final con trim(), divide el texto en lineas con split("\n") y guarda cada linea como un elemento del arreglo listaParticipantes
+    const numeroPremios = parseInt(document.getElementById('Numeropremios').value);
+    const listaParticipantes = document.getElementById('ListaParticipantes').value.trim().split('\n');
 
     if (listaParticipantes.length < 2) {
         alert('Error, mínimo de 2 participantes');
@@ -53,8 +53,8 @@ const comprobarValores = () => {
 /**
  * Dibuja en el canvas
  * @function dibujarEnCanvas
- * @param {string} titulo - El título del sorteo
- * @param {array} ganadores - Lista de ganadores
+ * @param titulo {string} - El título del sorteo
+ * @param ganadores {array} - Lista de ganadores
  * @returns {void}
  */
 const dibujarEnCanvas = (titulo, ganadores) => {
@@ -67,8 +67,8 @@ const dibujarEnCanvas = (titulo, ganadores) => {
     ctx.fillText(`Título: ${titulo}`, 10, 20);
     ctx.fillText('Ganadores:', 10, 40);
 
-    ganadores.forEach((ganador, index) => { //recorre el arreglo ganadores, donde ganador es cada elemento del arreglo y indice es el indice actual del elemento
-        ctx.fillText(`${index + 1}. ${ganador}`, 10, 60 + (index * 20)); //dibuja cada ganador en el canvas
+    ganadores.forEach((ganador, index) => {
+        ctx.fillText(`${index + 1}. ${ganador}`, 10, 60 + (index * 20));
     });
 };
 
@@ -79,7 +79,7 @@ const realizarAmigoInvisible = () => {
         alert('Error, mínimo de 2 participantes');
         return;
     }
-    listaParticipantes.toLowerCase(); //Conversión a minúsculas
+    listaParticipantes.toLowerCase();
     const parti_que_regala = [listaParticipantes];
     const destinario = [];
 
