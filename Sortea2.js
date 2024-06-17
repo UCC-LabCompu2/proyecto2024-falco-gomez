@@ -2,7 +2,6 @@
 /**
  * Realiza un sorteo entre los participantes ingresados y dibuja los ganadores en un canvas
  * @function realizarSorteo
- * @return {void}
  */
 const realizarSorteo = () => {
     const titulo = document.getElementById('IngresoDatos').value;
@@ -22,7 +21,6 @@ const realizarSorteo = () => {
 /**
  * Borra el contenido del campo Lista de Participantes
  * @function borrarParticipantes
- * @returns {void}
  */
 const borrarParticipantes = () => {
     document.getElementById('ListaParticipantes').value = '';
@@ -31,7 +29,6 @@ const borrarParticipantes = () => {
 /**
  * Comprueba que los valores ingresados sean correctos
  * @function comprobarValores
- * @returns {void}
  */
 const comprobarValores = () => {
     const numeroPremios = parseInt(document.getElementById('Numeropremios').value);
@@ -55,7 +52,6 @@ const comprobarValores = () => {
  * @function dibujarEnCanvas
  * @param titulo {string} - El título del sorteo
  * @param ganadores {array} - Lista de ganadores
- * @returns {void}
  */
 const dibujarEnCanvas = (titulo, ganadores) => {
     const canvas = document.getElementById('myCanvas');
