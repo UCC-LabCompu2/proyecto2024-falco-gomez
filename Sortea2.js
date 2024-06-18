@@ -45,6 +45,7 @@ const comprobarValores = () => {
         .value.trim()
         .split("\n");
 
+
     if (listaParticipantes.length < 2) {
         alert("Error, mínimo de 2 participantes");
         return;
@@ -81,7 +82,7 @@ const dibujarEnCanvas = (titulo, ganadores) => {
 /**
  * realiza sorteo del amigo invisible
  * @function realizarAmigoInvisible
- * @param destinatarios{array} - participantes sorteados
+ * @param destinatarios {array} - participantes sorteados
  *@param listaParticipantes {string}
  */
 const realizarAmigoInvisible = () => {
@@ -91,7 +92,7 @@ const realizarAmigoInvisible = () => {
         .toLowerCase()
         .split("\n");
 
-     errores(listaParticipantes);
+    errores(listaParticipantes);
     let destinatarios = listaParticipantes
         .slice()
         .sort(() => Math.random() - 0.5);
@@ -125,13 +126,39 @@ const realizarAmigoInvisible = () => {
         ).innerText = `No se encontró a ${nombreIngresado} en la lista de participantes.`;
     }
 };
+/**
+ * Función para verificar errores en la lista de participantes.
+ * Muestra una alerta si la lista no cumple con los requisitos mínimos.
+ * @param listaParticipantes {Array} - Lista de participantes a verificar.
+ */
 const errores = (listaParticipantes) => {
     if (listaParticipantes.length < 3) {
         alert("Error, mínimo de 3 participantes");
         return;
     }
-    if (listaParticipantes=== ''){
+    if (listaParticipantes === '') {
         alert("Error, mínimo de 3 participantes");
         return;
     }
+};
+
+
+/**
+ * Función para manejar el envío del formulario de preguntas y contacto.
+ * Verifica que los campos de consulta y correo electrónico estén llenos antes de enviar el formulario.
+ * Muestra una alerta si alguno de los campos está vacío.
+ * @param {Event} event - El evento de envío del formulario.
+ */
+const manejarEnvioFormulario = (event) => {
+    event.preventDefault();
+
+    const consulta = document.getElementById('IngresoDatos').value.trim();
+    const correo = document.getElementById('Ingresomail').value.trim();
+
+    if (consulta === '' || correo === '') {
+        alert('Por favor, complete todos los campos antes de enviar.');
+        return;
+    }
+
+    event.target.submit();
 };

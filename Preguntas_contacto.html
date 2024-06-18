@@ -5,9 +5,9 @@
     <title>Preguntas-Contacto</title>
     <link rel="stylesheet" href="Sortea2.css" type="text/css">
     <link rel="shortcut icon" href="Imagenes/favicon.ico" type="image/x-icon">
-    <meta content="Magdalena Gómez Figueroa y Francisca Falco" name="author">
-    <meta content="Prácticas para el material de HTML" name="description">
-    <meta content="sorteo, amigo invisble, azar, juegos" name="keywords">
+    <meta name="author" content="Magdalena Gómez Figueroa y Francisca Falco">
+    <meta name="description" content="Prácticas para el material de HTML">
+    <meta name="keywords" content="sorteo, amigo invisible, azar, juegos">
     <script type="text/javascript" src="Sortea2.js"></script>
 </head>
 <body class="Preguntas">
@@ -15,13 +15,13 @@
     <nav>
         <a href="index.html">INICIO</a>
         <a href="Sorteo.html">SORTEO</a>
-        <a href="AmigoInvisible.html">AMIGO INVISBLE</a>
+        <a href="AmigoInvisible.html">AMIGO INVISIBLE</a>
     </nav>
     <div class="linea"></div>
 </header>
-<form>
+<form id="formularioPreguntas" onsubmit="return manejarEnvioFormulario(event)">
     <div>
-        <h1 class="subtitulo">Preguntas-Contactos</h1>
+        <h1 class="subtitulo">Preguntas-Contacto</h1>
         <p>
             <label for="IngresoDatos">Ingrese su consulta:</label>
         </p>
@@ -54,5 +54,6 @@
         <p>Organiza sorteos completamente gratis</p>
     </div>
 </div>
+
 </body>
 </html>
