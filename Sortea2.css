@@ -7,6 +7,7 @@ header {
     width: 100%; /* Establecemos que el header abarque el 100% del documento */
     overflow: hidden; /* Eliminamos errores de float */
     margin-bottom: 20px;
+
 }
 
 body {
@@ -223,7 +224,7 @@ a:hover {
 #S2 {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 0;
     transform: translateY(-50%);
 }
 
@@ -252,7 +253,9 @@ a:hover {
 
 #S2 {
     position: absolute;
-    right: 0;
-    top: 50%;
+    right:10px;
+    top: 3%;
     transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
 }

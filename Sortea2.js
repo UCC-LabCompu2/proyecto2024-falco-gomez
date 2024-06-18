@@ -78,7 +78,12 @@ const dibujarEnCanvas = (titulo, ganadores) => {
         ctx.fillText(`${index + 1}. ${ganador}`, 10, 60 + index * 20);
     });
 };
-
+/**
+ * realiza sorteo del amigo invisible
+ * @function realizarAmigoInvisible
+ * @param destinatarios {array} - participantes sorteados
+ *
+ */
 const realizarAmigoInvisible = () => {
     const listaParticipantes = document
         .getElementById("ListaParticipantes")
