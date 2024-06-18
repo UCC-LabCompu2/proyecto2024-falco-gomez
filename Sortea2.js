@@ -1,12 +1,18 @@
-
 /**
  * Realiza un sorteo entre los participantes ingresados y dibuja los ganadores en un canvas
  * @function realizarSorteo
  */
+
 const realizarSorteo = () => {
-    const titulo = document.getElementById('IngresoDatos').value;
-    const numeroPremios = parseInt(document.getElementById('Numeropremios').value);
-    const listaParticipantes = document.getElementById('ListaParticipantes').value.trim().split('\n');
+    const titulo = document.getElementById("IngresoDatos").value;
+
+    const numeroPremios = parseInt(
+        document.getElementById("Numeropremios").value
+    );
+    const listaParticipantes = document
+        .getElementById("ListaParticipantes")
+        .value.trim()
+        .split("\n");
 
     const ganadores = [];
     const participantes = [...listaParticipantes];
@@ -23,7 +29,7 @@ const realizarSorteo = () => {
  * @function borrarParticipantes
  */
 const borrarParticipantes = () => {
-    document.getElementById('ListaParticipantes').value = '';
+    document.getElementById("ListaParticipantes").value = "";
 };
 
 /**
@@ -31,11 +37,16 @@ const borrarParticipantes = () => {
  * @function comprobarValores
  */
 const comprobarValores = () => {
-    const numeroPremios = parseInt(document.getElementById('Numeropremios').value);
-    const listaParticipantes = document.getElementById('ListaParticipantes').value.trim().split('\n');
+    const numeroPremios = parseInt(
+        document.getElementById("Numeropremios").value
+    );
+    const listaParticipantes = document
+        .getElementById("ListaParticipantes")
+        .value.trim()
+        .split("\n");
 
     if (listaParticipantes.length < 2) {
-        alert('Error, mínimo de 2 participantes');
+        alert("Error, mínimo de 2 participantes");
         return;
     }
 
@@ -54,59 +65,62 @@ const comprobarValores = () => {
  * @param ganadores {array} - Lista de ganadores
  */
 const dibujarEnCanvas = (titulo, ganadores) => {
-    const canvas = document.getElementById('myCanvas');
-    const ctx = canvas.getContext('2d');
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height); //limpia el canvas
 
-    ctx.font = '16px Calibri';
-    ctx.fillStyle = 'black';
+    ctx.font = "16px Calibri";
+    ctx.fillStyle = "black";
     ctx.fillText(`Título: ${titulo}`, 10, 20);
-    ctx.fillText('Ganadores:', 10, 40);
+    ctx.fillText("Ganadores:", 10, 40);
 
     ganadores.forEach((ganador, index) => {
-        ctx.fillText(`${index + 1}. ${ganador}`, 10, 60 + (index * 20));
+        ctx.fillText(`${index + 1}. ${ganador}`, 10, 60 + index * 20);
     });
 };
 
 const realizarAmigoInvisible = () => {
-    const listaParticipantes = document.getElementById('ListaParticipantes').value.trim().split('\n');
+    const listaParticipantes = document
+        .getElementById("ListaParticipantes")
+        .value.trim()
+        .toLowerCase()
+        .split("\n");
 
-    if (listaParticipantes.length < 2) {
-        alert('Error, mínimo de 2 participantes');
+    if (listaParticipantes.length < 3) {
+        alert("Error, mínimo de 3 participantes");
         return;
     }
-    listaParticipantes.toLowerCase();
-    const parti_que_regala = [listaParticipantes];
-    const destinario = [];
 
+    let destinatarios = listaParticipantes
+        .slice()
+        .sort(() => Math.random() - 0.5);
 
-    for (let i = 0; i < parti_que_regala.length; i++) {
-        const indice = Math.floor(Math.random() * parti_que_regala.length);
-        if (i != indice) {
-            destinario.push(parti_que_regala[indice]);
+    // Asegurarse de que ningún participante se regale a sí mismo
+    for (let i = 0; i < listaParticipantes.length; i++) {
+        if (listaParticipantes[i] === destinatarios[i]) {
+            destinatarios = listaParticipantes
+                .slice()
+                .sort(() => Math.random() - 0.5);
+            i = -1; // Reiniciar el chequeo
         }
     }
-    let destinatarioSeleccionado = '';
-    const Nombre_ingresado=document.getElementById('IngresoDatos').value.trim();
-    Nombre_ingresado.toLowerCase(); //Conversión a minúsculas
-    for (let i=0;i<parti_que_regala.length;i++){
-        if(Nombre_ingresado===parti_que_regala[i]){
-            destinatarioSeleccionado=destinario[i];
-            dibujarEnCanvas2(Nombre_ingresado,destinatarioSeleccionado)
-        }
+
+    const nombreIngresado = document
+        .getElementById("Ingresonombre")
+        .value.trim()
+        .toLowerCase();
+
+    const indexParticipante = listaParticipantes.findIndex(
+        (participante) => participante === nombreIngresado
+    );
+    if (indexParticipante !== -1) {
+        const destinatario = destinatarios[indexParticipante];
+        document.getElementById(
+            "resultado"
+        ).innerText = `regala a: ${destinatario}`;
+    } else {
+        document.getElementById(
+            "resultado"
+        ).innerText = `No se encontró a ${nombreIngresado} en la lista de participantes.`;
     }
-    document.getElementById('sorteado').value=destinatarioSeleccionado;
-
-
-
 };
-const dibujarEnCanvas2 = (participante, destinatario) => {
-    const canvas = document.getElementById('mycanvasInvisible');
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height); //limpia el canvas
-
-    ctx.font = '16px Calibri';
-    ctx.fillStyle = 'black';
-    ctx.fillText(' ${participante}', 10, 20);
-    ctx.fillText('&{destinatario}', 10, 40);
-}
