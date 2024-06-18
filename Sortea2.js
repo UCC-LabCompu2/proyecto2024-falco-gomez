@@ -81,8 +81,8 @@ const dibujarEnCanvas = (titulo, ganadores) => {
 /**
  * realiza sorteo del amigo invisible
  * @function realizarAmigoInvisible
- * @param destinatarios {array} - participantes sorteados
- *
+ * @param destinatarios{array} - participantes sorteados
+ *@param listaParticipantes {string}
  */
 const realizarAmigoInvisible = () => {
     const listaParticipantes = document
@@ -91,11 +91,7 @@ const realizarAmigoInvisible = () => {
         .toLowerCase()
         .split("\n");
 
-    if (listaParticipantes.length < 3) {
-        alert("Error, mínimo de 3 participantes");
-        return;
-    }
-
+     errores(listaParticipantes);
     let destinatarios = listaParticipantes
         .slice()
         .sort(() => Math.random() - 0.5);
@@ -127,5 +123,15 @@ const realizarAmigoInvisible = () => {
         document.getElementById(
             "resultado"
         ).innerText = `No se encontró a ${nombreIngresado} en la lista de participantes.`;
+    }
+};
+const errores = (listaParticipantes) => {
+    if (listaParticipantes.length < 3) {
+        alert("Error, mínimo de 3 participantes");
+        return;
+    }
+    if (listaParticipantes=== ''){
+        alert("Error, mínimo de 3 participantes");
+        return;
     }
 };
