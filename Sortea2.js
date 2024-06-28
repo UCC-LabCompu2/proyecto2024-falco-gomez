@@ -30,6 +30,9 @@ const realizarSorteo = () => {
  */
 const borrarParticipantes = () => {
     document.getElementById("ListaParticipantes").value = "";
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // limpia el canvas
 };
 
 /**
@@ -51,7 +54,12 @@ const comprobarValores = () => {
         return;
     }
 
-    if (numeroPremios < 0 || isNaN(numeroPremios)) {
+    if (listaParticipantes.length<=numeroPremios){
+        alert("Error, el numero de premios debe ser menor a la cantidad de participantes");
+        return;
+    }
+
+    if (numeroPremios < 1 || isNaN(numeroPremios)) {
         alert("Error, número de premios debe ser mayor a cero");
         document.getElementById("Numeropremios").value = "";
         return;
@@ -72,6 +80,10 @@ const dibujarEnCanvas = (titulo, ganadores) => {
 
     ctx.font = "30px Castoro Titling";
     ctx.fillStyle= '#DE6449FF'
+
+    if (titulo){
+        ctx.fillText(`${titulo}`, 50, 21);
+        }
 
     ganadores.forEach((ganador, index) => {
         ctx.fillText(`${index + 1}. ${ganador}`, 58, 50 + index * 30);
