@@ -70,13 +70,11 @@ const dibujarEnCanvas = (titulo, ganadores) => {
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height); //limpia el canvas
 
-    ctx.font = "16px Calibri";
-    ctx.fillStyle = "black";
-    ctx.fillText(`Título: ${titulo}`, 10, 20);
-    ctx.fillText("Ganadores:", 10, 40);
+    ctx.font = "30px Castoro Titling";
+    ctx.fillStyle= '#DE6449FF'
 
     ganadores.forEach((ganador, index) => {
-        ctx.fillText(`${index + 1}. ${ganador}`, 10, 60 + index * 20);
+        ctx.fillText(`${index + 1}. ${ganador}`, 58, 50 + index * 30);
     });
 };
 /**

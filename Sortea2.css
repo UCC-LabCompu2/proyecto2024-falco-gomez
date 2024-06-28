@@ -211,6 +211,15 @@ a:hover {
     width: 300px;
     text-align: center;
 }
+#Ingresomail{
+        background: #F4F3F1;
+        border-color: black;
+        border-width: medium;
+        border-radius: 15px;
+        cursor: text;
+        width: 300px;
+        text-align: center;
+}
 
 #Ingresonombre {
     background: #F4F3F1;
@@ -259,4 +268,8 @@ a:hover {
     transform: translateY(-50%);
     width: 80px;
     height: 80px;
+}
+canvas {
+    display: block;
+    margin: auto; /* Centra el canvas horizontalmente dentro del contenedor */
 }
