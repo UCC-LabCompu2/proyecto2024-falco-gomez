@@ -1,7 +1,6 @@
-/**
- * Realiza un sorteo entre los participantes ingresados y dibuja los ganadores en un canvas
- * @function realizarSorteo
- */
+let scale = 1;
+let growing = true;
+let animationFrameId;
 
 const realizarSorteo = () => {
     const titulo = document.getElementById("IngresoDatos").value;
@@ -24,21 +23,16 @@ const realizarSorteo = () => {
     dibujarEnCanvas(titulo, ganadores);
 };
 
-/**
- * Borra el contenido del campo Lista de Participantes
- * @function borrarParticipantes
- */
 const borrarParticipantes = () => {
     document.getElementById("ListaParticipantes").value = "";
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height); // limpia el canvas
+    cancelAnimationFrame(animationFrameId); // Cancela cualquier animación en curso
+    scale = 1; // Reinicia la escala
+    growing = true; // Reinicia la dirección de la animación
 };
 
-/**
- * Comprueba que los valores ingresados sean correctos
- * @function comprobarValores
- */
 const comprobarValores = () => {
     const numeroPremios = parseInt(
         document.getElementById("Numeropremios").value
@@ -48,14 +42,13 @@ const comprobarValores = () => {
         .value.trim()
         .split("\n");
 
-
     if (listaParticipantes.length < 2) {
         alert("Error, mínimo de 2 participantes");
         return;
     }
 
-    if (listaParticipantes.length<=numeroPremios){
-        alert("Error, el numero de premios debe ser menor a la cantidad de participantes");
+    if (listaParticipantes.length <= numeroPremios) {
+        alert("Error, el número de premios debe ser menor a la cantidad de participantes");
         return;
     }
 
@@ -67,34 +60,51 @@ const comprobarValores = () => {
     realizarSorteo();
 };
 
-/**
- * Dibuja en el canvas
- * @function dibujarEnCanvas
- * @param titulo {string} - El título del sorteo
- * @param ganadores {array} - Lista de ganadores
- */
 const dibujarEnCanvas = (titulo, ganadores) => {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height); //limpia el canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // limpia el canvas
 
-    ctx.font = "30px Castoro Titling";
-    ctx.fillStyle= '#DE6449FF'
+    const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // limpia el canvas
+        ctx.save(); // Guarda el estado actual del canvas
+        ctx.translate(canvas.width / 2, canvas.height / 2); // Traslada el contexto al centro del canvas
+        ctx.scale(scale, scale); // Escala el contexto
+        ctx.translate(-canvas.width / 2, -canvas.height / 2); // Vuelve a trasladar el contexto
 
-    if (titulo){
-        ctx.fillText(`${titulo}`, 50, 21);
+        ctx.font = "30px Castoro Titling";
+        ctx.fillStyle = '#DE6449FF';
+
+        if (titulo) {
+            ctx.fillText(`${titulo}`, 50, 50); // Dibuja el título en el centro
         }
 
-    ganadores.forEach((ganador, index) => {
-        ctx.fillText(`${index + 1}. ${ganador}`, 58, 50 + index * 30);
-    });
+        ganadores.forEach((ganador, index) => {
+            ctx.fillText(`${index + 1}. ${ganador}`, 50, 100 + index * 30); // Dibuja los ganadores en el centro
+        });
+
+        ctx.restore(); // Restaura el estado del canvas
+
+        if (growing) {
+            scale += 0.005; // Cambio en la escala más lento
+            if (scale >= 1.5) {
+                growing = false;
+            }
+        } else {
+            scale -= 0.005; // Cambio en la escala más lento
+            if (scale <= 1) {
+                growing = true;
+            }
+        }
+
+        animationFrameId = requestAnimationFrame(animate);
+    };
+
+    scale = 1;
+    growing = true;
+    animationFrameId = requestAnimationFrame(animate);
 };
-/**
- * realiza sorteo del amigo invisible
- * @function realizarAmigoInvisible
- * @param destinatarios {array} - participantes sorteados
- *@param listaParticipantes {string}
- */
+
 const realizarAmigoInvisible = () => {
     const listaParticipantes = document
         .getElementById("ListaParticipantes")
@@ -107,13 +117,12 @@ const realizarAmigoInvisible = () => {
         .slice()
         .sort(() => Math.random() - 0.5);
 
-    // Asegurarse de que ningún participante se regale a sí mismo
     for (let i = 0; i < listaParticipantes.length; i++) {
         if (listaParticipantes[i] === destinatarios[i]) {
             destinatarios = listaParticipantes
                 .slice()
                 .sort(() => Math.random() - 0.5);
-            i = -1; // Reiniciar el chequeo
+            i = -1;
         }
     }
 
@@ -136,11 +145,7 @@ const realizarAmigoInvisible = () => {
         ).innerText = `No se encontró a ${nombreIngresado} en la lista de participantes.`;
     }
 };
-/**
- * Función para verificar errores en la lista de participantes.
- * Muestra una alerta si la lista no cumple con los requisitos mínimos.
- * @param listaParticipantes {Array} - Lista de participantes a verificar.
- */
+
 const errores = (listaParticipantes) => {
     if (listaParticipantes.length < 3) {
         alert("Error, mínimo de 3 participantes");
@@ -152,13 +157,6 @@ const errores = (listaParticipantes) => {
     }
 };
 
-
-/**
- * Función para manejar el envío del formulario de preguntas y contacto.
- * Verifica que los campos de consulta y correo electrónico estén llenos antes de enviar el formulario.
- * Muestra una alerta si alguno de los campos está vacío.
- * @param {Event} event - El evento de envío del formulario.
- */
 const manejarEnvioFormulario = (event) => {
     event.preventDefault();
 
