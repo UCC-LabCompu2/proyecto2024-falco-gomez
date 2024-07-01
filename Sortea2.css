@@ -60,21 +60,7 @@ a:hover {
     color: #e08874;
 }
 
-.BotonesSorteo {
-    color: #de6449;
-    font-family: "Dancing Script", sans-serif;
-    border-radius: 20px;
-    border-color: black;
-    padding: 20px;
-    text-align: center;
-    font-size: 30px;
-    cursor: pointer;
-    width: 130px;
-    border-width: medium;
-    border: 0; /* Elimina el borde predeterminado */
-    border-top: 1px solid black; /* Establece un borde superior de 1px de grosor y sólido */
-    margin: 20px 0; /* Añade espacio encima y debajo de la línea */
-}
+
 
 div {
     text-align: center;
@@ -163,13 +149,14 @@ a:hover {
     color: #de6449;
     font-family: "Dancing Script", sans-serif;
     border-radius: 20px;
-    border-color: black;
     padding: 20px;
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
     cursor: pointer;
     width: 130px;
-    border-width: medium;
+    border: 0; /* Elimina el borde predeterminado */
+    border-top: 1px solid black; /* Establece un borde superior de 1px de grosor y sólido */
+    margin: 20px 0; /* Añade espacio encima y debajo de la línea */
 }
 
 .botonBorrar {

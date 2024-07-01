@@ -59,50 +59,71 @@ const comprobarValores = () => {
     }
     realizarSorteo();
 };
-
 const dibujarEnCanvas = (titulo, ganadores) => {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // limpia el canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
+
+    const canvasCenterX = canvas.width / 2;
+    const canvasCenterY = canvas.height / 2;
+
+    let scale = 1;
+    let growing = true;
 
     const animate = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // limpia el canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
         ctx.save(); // Guarda el estado actual del canvas
-        ctx.translate(canvas.width / 2, canvas.height / 2); // Traslada el contexto al centro del canvas
-        ctx.scale(scale, scale); // Escala el contexto
-        ctx.translate(-canvas.width / 2, -canvas.height / 2); // Vuelve a trasladar el contexto
 
-        ctx.font = "30px Castoro Titling";
+        // Ajusta la escala
+        ctx.translate(canvasCenterX, canvasCenterY); // Traslada el contexto al centro del canvas
+        ctx.scale(scale, scale); // Escala el contexto
+
+        // Ajusta el tamaño del texto de acuerdo a la escala
+        const fontSize = 30; // Tamaño base del texto
+        ctx.font = `${fontSize}px Castoro Titling`;
         ctx.fillStyle = '#DE6449FF';
 
-        if (titulo) {
-            ctx.fillText(`${titulo}`, 50, 50); // Dibuja el título en el centro
-        }
 
+
+        // Dibuja el título en el centro
+        if (titulo) {
+            const textWidth = ctx.measureText(titulo).width;
+            ctx.fillText(titulo, -textWidth / 2, -90);
+        }
+        // Texto adicional
+        const textoAdicional = "Los ganadores son:";
+        const textoAdicionalWidth = ctx.measureText(textoAdicional).width;
+        ctx.fillText(textoAdicional, -textoAdicionalWidth / 2, -50);
+
+        // Dibuja los ganadores en el centro
         ganadores.forEach((ganador, index) => {
-            ctx.fillText(`${index + 1}. ${ganador}`, 50, 100 + index * 30); // Dibuja los ganadores en el centro
+            const textWidth = ctx.measureText(`${index + 1}. ${ganador}`).width;
+            const lineHeight = 30; // Altura de línea
+            const startY = 50 + index * (lineHeight + 10); // Espacio entre líneas ajustado
+
+            ctx.fillText(`${index + 1}: ${ganador}`, -textWidth / 2, startY);
         });
 
         ctx.restore(); // Restaura el estado del canvas
 
+        // Modifica la escala
         if (growing) {
-            scale += 0.005; // Cambio en la escala más lento
+            scale += 0.005; // Aumenta la escala lentamente
             if (scale >= 1.5) {
                 growing = false;
             }
         } else {
-            scale -= 0.005; // Cambio en la escala más lento
-            if (scale <= 1) {
+            scale -= 0.005; // Reduce la escala lentamente
+            if (scale <= 0.8) {
                 growing = true;
             }
         }
 
-        animationFrameId = requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
     };
 
-    scale = 1;
-    growing = true;
-    animationFrameId = requestAnimationFrame(animate);
+    // Inicia la animación
+    animate();
 };
 
 const realizarAmigoInvisible = () => {
