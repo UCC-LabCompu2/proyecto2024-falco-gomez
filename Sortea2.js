@@ -1,3 +1,11 @@
+/**
+ * Realiza un sorteo seleccionando un número determinado de ganadores de una lista de participantes.
+ * @method realizarSorteo
+ * @param titulo {string} - El título del sorteo obtenido del elemento con id "IngresoDatos".
+ * @param numeroPremios {number} - La cantidad de premios a sortear obtenida del elemento con id "Numeropremios".
+ * @param listaParticipantes {Array<string>} - Lista de participantes obtenida del elemento con id "ListaParticipantes".
+ */
+
 let scale = 1;
 let growing = true;
 let animationFrameId;
@@ -23,6 +31,10 @@ const realizarSorteo = () => {
     dibujarEnCanvas(titulo, ganadores);
 };
 
+/**
+ * Borra la lista de participantes y limpia el canvas, reiniciando cualquier animación en curso.
+ * @method borrarParticipantes
+ */
 const borrarParticipantes = () => {
     document.getElementById("ListaParticipantes").value = "";
     const canvas = document.getElementById("myCanvas");
@@ -33,6 +45,10 @@ const borrarParticipantes = () => {
     growing = true; // Reinicia la dirección de la animación
 };
 
+/**
+ * Comprueba los valores ingresados para el sorteo y muestra alertas de error si los valores no son válidos.
+ * @method comprobarValores
+ */
 const comprobarValores = () => {
         const numeroPremios = parseInt(
             document.getElementById("Numeropremios").value
@@ -59,6 +75,13 @@ const comprobarValores = () => {
     }
     realizarSorteo();
 };
+
+/**
+ * Dibuja el título y los ganadores en un canvas con una animación de escala.
+ * @method dibujarEnCanvas
+ * @param titulo {string} - El título del sorteo que se dibuja en el canvas.
+ * @param ganadores {Array<string>} - La lista de ganadores que se dibujan en el canvas.
+ */
 const dibujarEnCanvas = (titulo, ganadores) => {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
@@ -126,6 +149,10 @@ const dibujarEnCanvas = (titulo, ganadores) => {
     animate();
 };
 
+/**
+ * Realiza la asignación del juego de amigo invisible entre los participantes y muestra el destinatario para el nombre ingresado.
+ * @method realizarAmigoInvisible
+ */
 const realizarAmigoInvisible = () => {
     const listaParticipantes = document
         .getElementById("ListaParticipantes")
@@ -177,6 +204,11 @@ const errores = (listaParticipantes) => {
     }
 };
 
+/**
+ * Maneja el envío del formulario, previene el envío si los campos requeridos están vacíos y alerta al usuario.
+ * @method manejarEnvioFormulario
+ * @param event {Event} - El evento de envío del formulario.
+ */
 const manejarEnvioFormulario = (event) => {
     event.preventDefault();
 
