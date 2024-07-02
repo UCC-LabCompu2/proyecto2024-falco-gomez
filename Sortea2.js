@@ -34,9 +34,9 @@ const borrarParticipantes = () => {
 };
 
 const comprobarValores = () => {
-    const numeroPremios = parseInt(
-        document.getElementById("Numeropremios").value
-    );
+        const numeroPremios = parseInt(
+            document.getElementById("Numeropremios").value
+        );
     const listaParticipantes = document
         .getElementById("ListaParticipantes")
         .value.trim()
@@ -132,7 +132,6 @@ const realizarAmigoInvisible = () => {
         .value.trim()
         .toLowerCase()
         .split("\n");
-
     errores(listaParticipantes);
     let destinatarios = listaParticipantes
         .slice()
